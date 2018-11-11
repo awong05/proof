@@ -25,5 +25,10 @@
 # Rails.application.config.content_security_policy_report_only = true
 
 Rails.application.config.content_security_policy do |policy|
-  policy.connect_src :self, :https, 'http://localhost:3035', 'ws://localhost:3035' if Rails.env.development?
+  allowed_sources = :self, :https
+  if Rails.env.development?
+    policy.connect_src *allowed_sources, 'http://localhost:3035', 'ws://localhost:3035'
+    allowed_sources << :unsafe_eval
+  end
+  policy.script_src *allowed_sources
 end
