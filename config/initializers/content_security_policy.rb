@@ -28,7 +28,7 @@ Rails.application.config.content_security_policy do |policy|
   valid_srcset = :self, :https
   if Rails.env.development?
     policy.connect_src *valid_srcset, 'http://localhost:3035', 'ws://localhost:3035'
-    valid_srcset << :unsafe_eval
+    valid_srcset << :unsafe_eval << :unsafe_inline
   end
   policy.script_src *valid_srcset
 end
