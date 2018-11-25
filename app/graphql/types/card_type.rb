@@ -1,5 +1,5 @@
 module Types
   class CardType < Types::BaseObject
-    field :description, String, null: false
+    field :overview, String, null: false
   end
 end
