@@ -1,5 +1,5 @@
 module Types
-  class MutationType < Types::BaseObject
+  class MutationType < BaseObject
     field :create_card, mutation: Mutations::CreateCard
   end
 end

@@ -1,6 +1,6 @@
 module Types
-  class QueryType < Types::BaseObject
-    field :cards, [Types::CardType], null: false,
+  class QueryType < BaseObject
+    field :cards, [CardType], null: false,
       description: 'Cards'
 
     def cards
