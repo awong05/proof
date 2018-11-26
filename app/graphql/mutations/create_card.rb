@@ -1,5 +1,5 @@
 module Mutations
-  class CreateCard < Mutations::BaseMutation
+  class CreateCard < BaseMutation
     argument :overview, String, required: true
 
     field :card,   Types::CardType, null: true
