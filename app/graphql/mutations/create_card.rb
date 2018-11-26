@@ -6,7 +6,7 @@ module Mutations
     field :errors, [String],        null: false
 
     def resolve overview:
-      card = Card.new overview: overview
+      card = Card.new overview: overview, user: context[:current_user]
       if card.save
         {
           card:   card,
@@ -14,8 +14,8 @@ module Mutations
         }
       else
         {
-          comment: nil,
-          errors:  card.errors.full_messages
+          card:   nil,
+          errors: card.errors.full_messages
         }
       end
     end
